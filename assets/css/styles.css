@@ -112,7 +112,7 @@ p {
   white-space: nowrap;
 }
 
-.brand img {
+.brand-logo {
   width: 46px;
   height: 46px;
   border-radius: 11px;
@@ -207,9 +207,11 @@ main {
 
 .hero-logo {
   width: min(100%, 340px);
+  aspect-ratio: 1;
   margin-inline: auto;
   border: 1px solid rgba(220, 232, 242, 0.8);
   border-radius: 30px;
+  object-fit: cover;
   box-shadow: var(--shadow-lg);
 }
 
@@ -309,6 +311,77 @@ main {
   border-radius: 99px;
   background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
   content: "";
+}
+
+.app-heading {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.app-heading h1,
+.app-heading h3 {
+  margin-bottom: 0;
+}
+
+.app-icon,
+.app-icon-placeholder {
+  width: 72px;
+  height: 72px;
+  flex: 0 0 72px;
+  border: 1px solid var(--color-border);
+  border-radius: 18px;
+  box-shadow: 0 8px 22px rgba(6, 26, 69, 0.12);
+}
+
+.app-icon {
+  object-fit: cover;
+}
+
+.app-icon-placeholder {
+  position: relative;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background: linear-gradient(145deg, var(--color-primary), var(--color-accent));
+}
+
+.app-icon-placeholder::before {
+  width: 24px;
+  height: 32px;
+  border: 4px solid #fff;
+  border-radius: 50% 50% 50% 0;
+  content: "";
+  transform: rotate(-45deg);
+}
+
+.app-icon-placeholder::after {
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #fff;
+  content: "";
+}
+
+.app-hero-heading {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.app-hero-heading h1 {
+  margin-bottom: 0;
+}
+
+.app-hero-heading .app-icon,
+.app-hero-heading .app-icon-placeholder {
+  width: 88px;
+  height: 88px;
+  flex-basis: 88px;
+  border-radius: 22px;
 }
 
 .text-link {
@@ -465,6 +538,15 @@ main {
 
   .hero-logo {
     width: min(75%, 300px);
+  }
+
+  .app-hero-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .app-heading {
+    align-items: flex-start;
   }
 
   .hero-copy {
